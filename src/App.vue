@@ -1,12 +1,48 @@
+
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <MyLayout v-if="showLayout">
+      <router-view></router-view>
+    </MyLayout>
+    <router-view v-else></router-view>
   </div>
 </template>
+
+<script>
+import MyLayout from '@/components/MyLayout'
+export default {
+  components: {
+    MyLayout
+  },
+  data () {
+    return {
+      showLayout: true
+    }
+  },
+  methods: {
+    refreshLayout () {
+      var that = this
+      if (that.$route.name === 'Login' || that.$route.path === '/404') {
+        that.showLayout = false
+      } else {
+        that.showLayout = true
+      }
+    }
+  },
+  created () {
+    // document.body.removeChild(document.getElementById('spinner'))
+    var that = this
+    that.refreshLayout()
+  },
+  watch: {
+    $route: {
+      handler: function (val, oldVal) {
+        this.refreshLayout()
+      }
+    }
+  }
+}
+</script>
 
 <style lang="less">
 #app {
