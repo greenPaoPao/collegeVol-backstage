@@ -22,26 +22,36 @@
         </Menu>
       </Header>
       <Layout>
-        <Sider hide-trigger :style="{ minHeight: '688px', minWidth: '190px'}">
+        <Sider hide-trigger :style="{ minHeight: '692px', minWidth: '190px'}">
           <Menu :theme="theme" active-name="1" width="auto">
-            <MenuGroup title="内容管理">
-              <MenuItem name="1">
-                  <Icon type="md-document" />
-                  文章管理
-              </MenuItem>
+            <MenuGroup title="控制面板">
+                <MenuItem name="1">
+                    <Icon type="ios-home" />
+                    主页
+                </MenuItem>
+            </MenuGroup>
+            <MenuGroup title="活动管理">
               <MenuItem name="2">
+                  <Icon type="ios-add-circle-outline" />
+                  发布活动
+              </MenuItem>
+              <MenuItem name="3">
+                  <Icon type="md-eye" />
+                  审核活动
+              </MenuItem>
+              <MenuItem name="4">
                   <Icon type="md-chatbubbles" />
-                  评论管理
+                  所有活动
               </MenuItem>
             </MenuGroup>
-            <MenuGroup title="统计分析">
-                <MenuItem name="3">
+            <MenuGroup title="志愿者管理">
+                <MenuItem name="5">
                     <Icon type="md-heart" />
-                    用户留存
+                    志愿者列表
                 </MenuItem>
-                <MenuItem name="4">
-                    <Icon type="md-leaf" />
-                    流失用户
+                <MenuItem name="6">
+                    <Icon type="md-body" />
+                    新增志愿者
                 </MenuItem>
             </MenuGroup>
           </Menu>
@@ -78,13 +88,13 @@ export default {
   overflow: hidden;
 }
 .layout-header {
-  background: #58B957;
-  margin: 0 -50px;
+  /* background: #58B957; */
+  margin: 0 -50px -4px -50px;
 }
 
-/* .ivu-layout-header {
+.ivu-layout-header {
   background: #58B957;
-} */
+}
 .logo{
   display: block;
   width: 100px;
